@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix,UnusedAttribute">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_article_list_sources_spinner_height"
+        android:elevation="2dp"
+        android:paddingLeft="@dimen/view_moderate_padding"
+        android:paddingRight="@dimen/view_moderate_padding"
+        android:background="@color/colorPrimaryDark">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/activity_article_list_sources_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/activity_article_list_spinner_color" />
+    </FrameLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_article_list_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/view_moderate_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_article_list_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+                android:id="@+id/activity_article_list_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                android:indeterminate="true"
+                app:spb_color="@color/colorAccent"
+                app:spb_interpolator="spb_interpolator_acceleratedecelerate"
+                app:spb_progressiveStart_speed="2.5"
+                app:spb_progressiveStop_speed="3.4"
+                app:spb_speed="1.0"/>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
