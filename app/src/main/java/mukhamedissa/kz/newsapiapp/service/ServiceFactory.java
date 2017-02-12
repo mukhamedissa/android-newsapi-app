@@ -1,5 +1,7 @@
 package mukhamedissa.kz.newsapiapp.service;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import mukhamedissa.kz.newsapiapp.util.Config;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,6 +22,7 @@ public class ServiceFactory {
         if (newsApiService == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(Config.BASE_URL)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
